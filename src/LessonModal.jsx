@@ -35,40 +35,8 @@ export default function LessonModal({ lessonData, index, done, lives, hints, onC
     setErrs(0)
     t0.current = Date.now()
 
-    const lessonId = lessonData?.id || (typeof index === 'number' ? index + 1 : null)
-    if (!lessonId) {
-      setLoading(false)
-      return
-    }
-
-    setLoading(true)
-    fetch(`http://127.0.0.1:8000/api/lessons/${lessonId}`)
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data) {
-          // Normalize explanations array
-          const exps = Array.isArray(data.explanations) ? data.explanations : []
-          setExplanations(exps)
-
-          // Normalize first exercise if available
-          const ex = Array.isArray(data.exercises) && data.exercises.length > 0 ? data.exercises[0] : null
-
-          setL((prev) => ({
-            ...prev,
-            id: data.id || prev?.id,
-            code: data.code || prev?.code,
-            title: data.title || prev?.title,
-            ozy: data.ozyReward || data.ozy_reward || prev?.ozy || 15,
-            opts: ex?.options || ex?.opts || prev?.opts || prev?.options || [],
-            q: ex?.prompt || ex?.q || ex?.question || prev?.q || prev?.question || '',
-            // Save raw correct answer (can be "<h1>", 2, "2", etc.)
-            a: ex?.correctAnswer !== undefined ? ex.correctAnswer : ex?.a !== undefined ? ex.a : prev?.a,
-            why: ex?.explanation || ex?.why || prev?.why || ''
-          }))
-        }
-      })
-      .catch((err) => console.warn('Using local lesson fallback:', err))
-      .finally(() => setLoading(false))
+    // Lesson content comes from the lesson passed in; nothing is fetched.
+    setLoading(false)
   }, [lessonData, index])
 
   if (!l) return null

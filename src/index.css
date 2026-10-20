@@ -168,6 +168,7 @@ html { scroll-behavior: smooth; }
   .hero-stage { margin-top: 64px; max-width: 720px; }.burn-demo { right: 0; }
 }
 @media (max-width: 720px) {
+  .hero-stage { display: none; }
   .hero-stage { margin-top: 75px; min-height: 440px; }.burn-demo { inset: 0; --win-top: 34px; --win-h: 372px; }.burn-demo.is-burning .frontend-layer { animation: none; }.burn-demo.is-burned .frontend-layer { clip-path: none; }.burn-ring, .burn-hint { display: none; }
 }
 
@@ -306,3 +307,7 @@ body {
 
 @keyframes loader-sweep { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
 .loader-sweep { animation: loader-sweep 1.2s ease-in-out infinite; }
+
+/* Never let one wide element make the whole page scroll sideways on phones. */
+html, body { overflow-x: clip; }
+img, video { max-width: 100%; }

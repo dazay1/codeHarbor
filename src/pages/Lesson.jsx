@@ -43,7 +43,7 @@ function Editor({ value, onChange, indent }) {
         requestAnimationFrame(() => e.target.setSelectionRange(selectionStart + indent.length, selectionStart + indent.length));
     };
     return (
-        <div className="flex min-h-0 flex-1 bg-[#0d1017] font-plex text-[14px] leading-[1.75]">
+        <div className="flex min-h-0 flex-1 bg-[#0d1017] font-plex text-[14px] leading-[1.75] max-[720px]:text-[16px]">
             <div className="w-12 flex-none select-none overflow-hidden py-4 pr-3 text-right text-paper/35" ref={gutter} aria-hidden="true">
                 {Array.from({ length: count }, (_, i) => <div key={i}>{i + 1}</div>)}
             </div>
@@ -338,7 +338,7 @@ function QuizPanes({ exercise, done, onSolved }) {
 
                                 {typed && (
                                     <textarea
-                                        className="mt-6 block min-h-[140px] w-full resize-y rounded-[12px] border border-paper/20 bg-paper/[0.05] p-4 font-plex text-[14.5px] leading-[1.7] text-paper caret-signal outline-none transition duration-180 placeholder:text-paper/35 focus:border-signal disabled:opacity-70"
+                                        className="mt-6 block min-h-[140px] w-full resize-y rounded-[12px] border border-paper/20 bg-paper/[0.05] p-4 font-plex text-[14.5px] max-[720px]:text-[16px] leading-[1.7] text-paper caret-signal outline-none transition duration-180 placeholder:text-paper/35 focus:border-signal disabled:opacity-70"
                                         aria-label="Your answer"
                                         placeholder="Type your answer here…"
                                         spellCheck={false}

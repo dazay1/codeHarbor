@@ -23,13 +23,13 @@ export function Inline({ text }) {
 // The dark top bar shared by the course overview and the lesson workspace.
 export default function LearnBar({ children }) {
     return (
-        <header className="flex h-16 flex-none items-center gap-6 border-b border-paper/10 bg-[#0a0b10] px-[clamp(16px,3vw,32px)] text-paper">
+        <header className="flex h-16 flex-none items-center gap-6 max-[720px]:gap-3 border-b border-paper/10 bg-[#0a0b10] px-[clamp(16px,3vw,32px)] text-paper">
             <Link className="inline-flex flex-none items-center gap-[10px] text-[18px] font-bold tracking-[-0.07em]" to="/" aria-label="Code Harbor home">
                 <BeaconMark />
                 <span className="max-[720px]:hidden">code<span className="font-medium text-paper/60">harbor</span></span>
             </Link>
-            <div className="flex min-w-0 flex-1 items-center gap-6">{children}</div>
-            <div className="flex flex-none items-center gap-5">
+            <div className="flex min-w-0 flex-1 items-center gap-6 max-[720px]:gap-3">{children}</div>
+            <div className="flex flex-none items-center gap-5 max-[720px]:gap-3">
                 <Link className="text-[13px] text-paper/70 transition-colors duration-180 hover:text-paper max-[720px]:hidden" to="/login">Sign in</Link>
                 <Link className="inline-flex h-10 items-center rounded-full bg-signal px-4 text-[13px] font-semibold text-ink transition-colors duration-180 hover:bg-signal-soft" to="/signup">Sign up</Link>
             </div>

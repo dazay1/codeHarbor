@@ -42,7 +42,7 @@ function TaskMock() {
         ['Handle an empty bill without breaking', 'todo'],
     ];
     return (
-        <div className="flex h-full flex-col">
+        <div className="flex flex-col">
             <TabBar tabs={[[FileText, 'Editor'], [Globe, 'Preview'], [Terminal, 'Terminal']]} active="Editor" />
             <div className="grid min-h-0 flex-1 grid-cols-[176px_1fr] max-[720px]:grid-cols-1">
                 <div className="border-r border-ink/10 bg-[#f5f6f8] p-4 font-plex text-[11px] text-ink/70 max-[720px]:hidden">
@@ -85,7 +85,7 @@ function ProgressMock() {
         ['Project', 'locked'],
     ];
     return (
-        <div className="flex h-full flex-col p-7 max-[720px]:p-5">
+        <div className="flex flex-col p-7 max-[720px]:p-5">
             <div className="flex items-center justify-between">
                 <div>
                     <div className="font-plex text-[10px] uppercase tracking-[0.14em] text-muted">Your path</div>
@@ -123,12 +123,12 @@ function ProgressMock() {
                         ))}
                     </div>
                 </div>
-                <div className={`flex flex-col rounded-[10px] border border-ink/10 p-4 ${enter}`} style={stagger(6)}>
+                <div className={`flex flex-col rounded-[10px] border border-ink/10 p-4 pb-5 ${enter}`} style={stagger(6)}>
                     <div className="text-[12px] font-semibold">Next up</div>
                     <div className="mt-2 font-editorial text-[22px] leading-none">Loops</div>
                     <div className="mt-1.5 font-plex text-[10px] text-muted">Lesson 3 of 5 · about 8 min</div>
-                    <span className="mt-auto inline-flex h-8 items-center justify-center gap-2 self-start rounded-[6px] bg-ink px-3.5 text-[11.5px] font-medium text-paper">
-                        Continue <ArrowUpRight size={13} strokeWidth={2} />
+                    <span className="mt-6 inline-flex h-9 items-center justify-center gap-2 self-start rounded-full bg-ink pl-4 pr-3 text-[11.5px] font-medium text-paper max-[720px]:self-end">
+                        Continue <ArrowUpRight size={14} strokeWidth={2} />
                     </span>
                 </div>
             </div>
@@ -149,7 +149,7 @@ function FeedbackMock() {
         ['handles an empty bill', false, 'expected 0, got NaN'],
     ];
     return (
-        <div className="flex h-full flex-col">
+        <div className="flex flex-col">
             <TabBar tabs={[[FileText, 'Editor'], [FlaskConical, 'Tests'], [Terminal, 'Terminal']]} active="Tests" />
             <div className="p-7 max-[720px]:p-5">
                 <div className="font-plex text-[10px] text-muted">app.js</div>
@@ -190,7 +190,7 @@ function ProofMock() {
         ['Reading list', 'Python', 'bg-[#e6e0fa]', <><span className="h-2 w-14 rounded-full bg-ink/75"></span><span className="h-2 w-10 rounded-full bg-ink/30"></span><span className="h-2 w-12 rounded-full bg-ink/30"></span></>],
     ];
     return (
-        <div className="flex h-full flex-col p-7 max-[720px]:p-5">
+        <div className="flex flex-col p-7 max-[720px]:p-5">
             <div className="font-plex text-[10px] uppercase tracking-[0.14em] text-muted">Your portfolio</div>
             <h4 className="mt-2 font-editorial text-[29px] leading-none tracking-[-0.01em]">Things you’ve built</h4>
             <div className="mt-7 grid grid-cols-3 gap-4 max-[720px]:grid-cols-2">
@@ -279,7 +279,7 @@ function Why() {
                 </div>
 
                 <div
-                    className={`mt-16 grid grid-cols-[0.82fr_1.18fr] items-end gap-[clamp(32px,5vw,80px)] max-[980px]:grid-cols-1 max-[720px]:mt-12 ${reveal}`}
+                    className={`mt-16 grid grid-cols-[0.82fr_1.18fr] items-center gap-[clamp(32px,5vw,80px)] max-[980px]:grid-cols-1 max-[720px]:mt-12 ${reveal}`}
                     data-reveal
                     ref={stageRef}
                     onMouseEnter={() => setHovered(true)}
@@ -331,7 +331,7 @@ function Why() {
                         </div>
                     </div>
 
-                    <div className="relative h-[580px] overflow-hidden rounded-[22px] border border-ink/[0.06] max-[980px]:h-[520px] max-[720px]:h-[500px]" aria-hidden="true">
+                    <div className="relative min-w-0 overflow-hidden rounded-[22px] border border-ink/[0.06] pl-[8%] pt-10 max-[720px]:pl-[5%] max-[720px]:pt-6" aria-hidden="true">
                         {features.map((feature, i) => (
                             <div
                                 className={`absolute inset-0 transition-opacity duration-700 ${i === active ? 'opacity-100' : 'opacity-0'}`}
@@ -341,7 +341,7 @@ function Why() {
                         ))}
                         {features.map(({ id, Mock }, i) => (
                             <div
-                                className={`absolute bottom-0 left-[8%] right-0 top-[13%] overflow-hidden rounded-tl-[14px] border-l border-t border-ink/10 bg-white shadow-[0_30px_80px_-30px_rgba(18,20,26,0.4)] transition duration-700 ease-harbor max-[720px]:left-[5%] max-[720px]:top-[8%] ${i === active ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-5 opacity-0'}`}
+                                className={`overflow-hidden rounded-tl-[14px] border-l border-t border-ink/10 bg-white shadow-[0_30px_80px_-30px_rgba(18,20,26,0.4)] transition duration-700 ease-harbor ${i === active ? 'relative translate-y-0 opacity-100' : 'pointer-events-none absolute left-[8%] right-0 top-10 translate-y-5 opacity-0 max-[720px]:left-[5%] max-[720px]:top-6'}`}
                                 key={id}
                             >
                                 <Mock key={i === active ? 'on' : 'off'} />
